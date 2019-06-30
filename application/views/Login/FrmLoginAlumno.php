@@ -28,7 +28,12 @@
                 <p class="login-box-msg">Si eres estudiante y no cuentas con un usuario y contrase&ntilde;a,
                     solic&iacute;tala a tu tutor.
                 </p>
-                <form action="<?php echo base_url(); ?>auth/login" method="post">
+                <?php if($this->session->flashdata("error")):?>
+                <div class="alert alert-danger">
+                    <p><?php echo $this->session->flashdata("error"); ?></p>
+                </div>                        
+                <?php endif; ?>
+                <form action="<?php echo base_url(); ?>Conexion/entrar" method="post">
                     <center>
                         <div class="form-group has-feedback">
                             <input type="text" class="form-control" placeholder="Usuario" name="txtusuario">

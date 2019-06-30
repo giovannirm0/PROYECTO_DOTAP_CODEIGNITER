@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Auth extends CI_Controller 
+class Conexion extends CI_Controller 
 {   
     public function __construct() 
     {
@@ -20,16 +20,16 @@ class Auth extends CI_Controller
         //$this->load->view('FrmTipoUsuario');
     }
     
-    public function login()
-    {
-        
+    //Función para ingresar
+    public function entrar()
+    {        
         $usuario = $this->input->post("txtusuario");
         $clave = $this->input->post("txtclave");
-        $res = $this->Usuarios_model->login($usuario, sha1($clave));
+        $res = $this->Usuarios_model->entrar($usuario, sha1($clave));
        
         if(!$res)
         {
-            //$this->session->set_flashdata("error","El usuario y/o contraseña son incorrectos");
+            $this->session->set_flashdata("error","El usuario y/o contraseña son incorrectos");
             redirect(base_url());
         }else{
             $data = array(
@@ -44,7 +44,8 @@ class Auth extends CI_Controller
         redirect(base_url()."logueado");
     }
     
-    public function logout()
+    //Función para cerrar sesión
+    public function desconectar()
     {
         $this->session->sess_destroy();
         redirect(base_url());

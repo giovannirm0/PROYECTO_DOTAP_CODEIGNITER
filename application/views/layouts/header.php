@@ -159,7 +159,7 @@
                   <a href="#" class="btn btn-default btn-flat">Profile</a>
                 </div>
                 <div class="pull-right">
-                  <a href="<?php echo base_url()?>auth/logout" class="btn btn-default btn-flat">Desconectar</a>
+                  <a href="<?php echo base_url()?>Conexion/desconectar" class="btn btn-default btn-flat">Desconectar</a>
                 </div>
               </li>
             </ul>
